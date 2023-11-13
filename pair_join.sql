@@ -1,6 +1,6 @@
 USE Northwind;
 
---cuántos pedidos ha realizado cada empresa cliente de UK. Nos piden el ID del cliente y el nombre de la empresa y el número de pedidos.--
+1--cuántos pedidos ha realizado cada empresa cliente de UK. Nos piden el ID del cliente y el nombre de la empresa y el número de pedidos.--
 
 SELECT customers.customer_id ,customers.company_name,COUNT(orders.order_id) AS pedidos_por_compania
 FROM customers 
@@ -9,7 +9,7 @@ ON customers.customer_id = orders.customer_id
 WHERE customers.country = 'UK'
 GROUP BY customers.customer_id, customers.company_name ;
 
---Productos pedidos por empresa en UK por año.
+2--Productos pedidos por empresa en UK por año.
 --query que nos sirva para conocer cuántos objetos ha pedido cada empresa cliente de UK durante cada año
 --concretamente conocer el nombre de la empresa, el año, y la cantidad de objetos
 
@@ -38,14 +38,16 @@ INNER JOIN orders
 
 SELECT customers.company_name, SUM(order_details.quantity), customers.country 
 FROM customers INNER JOIN order_details 
-GROUP BY customers.company_name, order_details.order_id, customers.country 
+GROUP BY customers.company_name, order_details.quantity, customers.country 
 HAVING customers.country = 'UK'
 
+--8.Empresas de UK y sus pedidos,obtengamos todos los nombres de las empresas,los ID de todos los pedidos que han realizado y la fecha del pedido.
 
+SELECT customers.company_name, orders.order_id, orders.order_date 
+FROM customers 
+INNER JOIN orders;
 
-
-
-
+9.Empleadas que sean de la misma ciudad:,la ubicación, nombre, y apellido tanto de las empleadas como de las jefas
 
 
 
