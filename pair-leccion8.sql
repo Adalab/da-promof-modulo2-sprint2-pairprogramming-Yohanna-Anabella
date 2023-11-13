@@ -54,6 +54,9 @@ FROM orders
  WHERE shipped_date <> 0000-00-00
  GROUP BY employee_id;
 
+
+SELECT 
+
  
 
 
