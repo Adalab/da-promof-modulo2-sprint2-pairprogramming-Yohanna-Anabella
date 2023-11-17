@@ -22,16 +22,6 @@ FROM products
 WHERE unit_price > (SELECT AVG(unit_price) FROM products)
 ORDER BY unit_price DESC;
 
-
- #--"Ejercicio 5"--??
-SELECT unit_price, product_name,
-CASE
-  	WHEN unit_price > 28.86 THEN 'precio_alto'
-  	WHEN unit_price < 28.86 THEN 'precio_bajo'
-  	END AS valor_productos 
-FROM products;  
-#--"Falta ordenar"--
-
 #"Ejercicio 5"
 SELECT discontinued, 
   CASE 
