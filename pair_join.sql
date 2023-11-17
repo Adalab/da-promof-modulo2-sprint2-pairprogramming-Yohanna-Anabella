@@ -64,6 +64,6 @@ INNER JOIN orders;
 #9.Empleadas que sean de la misma ciudad:,la ubicación, nombre, y apellido tanto de las empleadas como de las jefas
 
 
-
-
-
+SELECT e1.employee_id AS employee_empleado, e1.first_name AS first_nombre, e1.last_name AS last_apellido, e1.reports_to AS reports_reporta  
+FROM employees AS e1, employees AS e2
+WHERE e1.reports_to = e2.employee_id;
