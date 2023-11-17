@@ -11,11 +11,13 @@ FROM customers AS c
 WHERE city LIKE 'A%' OR city LIKE 'B%';
 
 #2.Número de pedidos que han hecho en las ciudades que empiezan con L.
+SELECT c.company_name, c.contact_name, c.city, COUNT(o.order_id) AS cantidad_pedidos
+FROM customers c
+INNER JOIN orders o USING (customer_id)
+WHERE c.city LIKE 'L%'
+GROUP BY c.company_name, c.contact_name, c.city;
 
-SELECT c.company_name, c.contact_name, c.city, SUM(o.order_id)  #--ME FALTA SUMAR CANTIDAD DE PEDIDOS
-FROM customers c INNER JOIN orders o
-GROUP BY c.company_name, c.contact_name, c.city,o.order_id
-HAVING city LIKE 'L%';
+
 
 #3.Todos los clientes cuyo "contact_title" no incluya "Sales",Extraer el nombre de contacto, su posisión (contact_title) y el nombre de la compañia.
 
